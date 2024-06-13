@@ -8,57 +8,59 @@ import { TaskService } from '../services/task.service';
 })
 export class HomePage {
 
+  data: any;
+
   constructor(private taskService: TaskService) {}
 
-  //es un metodo dentro que hace un llamado a taskservice y trae toda la lista de tareas
-  getAllTasks(){
-    this.taskService.getAllTasks()
-    .subscribe(tasks => {
-      console.log(tasks);
+  //es un metodo dentro que hace un llamado a taskservice y trae toda la lista de datos
+  getAllData(){
+    this.taskService.getAllData()
+    .subscribe(response => {
+      console.log(response)
     });
   }
 
-  //este metodo solo trae una sola tarea
-  getTask(){
-    this.taskService.getTask('2')
-    .subscribe(task => {
-      console.log(task);
+  //este metodo solo trae un solo  dato
+  getData(){
+    this.taskService.getData('2')
+    .subscribe(response => {
+      console.log(response);
     })
   }
 
   //este metodo crea la tarea, no siempre es necesario colocar el id, el sistema por defecto coloca el id
-  createTask(){
-    const task = {
+  createData(){
+    const data = {
       //id: '12',
       userId: '1',
       title: 'cambiar titulo',
       completed: true
     };
-    this.taskService.createTask(task)
-    .subscribe((newTask) => {
-      console.log(newTask);
+    this.taskService.createData(data)
+    .subscribe((newData) => {
+      console.log(newData);
     });
   }
 
-  /*en este metodo colocamos lo que actualizamos en que id lo queremos
-  en el pash solo se coloca lo que se quiere actualiza, no toda la lsita*/
-  updateTask(){
-    const task = {
+   //en este metodo colocamos lo que actualizamos en que id lo queremos
+   // en el pash solo se coloca lo que se quiere actualiza, no toda la lsita
+  updateData(){
+    const data = {
       id: '200',
       userId: '1',
       title: 'nuevo titulo cambiado',
       completed: true
     };
-    this.taskService.updateTask(task)
-    .subscribe(tasks => {
-      console.log(tasks);
+    this.taskService.updateData(data)
+    .subscribe(data => {
+      console.log(data);
     });
   }
   //en este metodo eliminamos datos
-  deleteTask() {
-    this.taskService.deleteTask('1')
-    .subscribe((task) =>{
-      console.log(task);
+  deleteData() {
+    this.taskService.deleteData('2')
+    .subscribe((data) =>{
+      console.log('dato eliminado', data);
     });
   }
 }
