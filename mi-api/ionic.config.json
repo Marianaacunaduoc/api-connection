@@ -1,0 +1,7 @@
+{
+  "name": "mi-api",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
