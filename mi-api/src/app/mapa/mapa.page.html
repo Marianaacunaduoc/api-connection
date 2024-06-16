@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mapa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-button (click)="getCurrentPosition()">posicion</ion-button>
+  <div *ngIf="latitude && longitude">
+    <p>Latitude: {{latitude}}</p>
+    <p>Longitude: {{longitude}}</p>
+  </div>
+</ion-content>
